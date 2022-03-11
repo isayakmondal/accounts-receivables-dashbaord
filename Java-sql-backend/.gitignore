@@ -1,0 +1,8 @@
+/demo
+/demo-Java
+/Demo2
+/apache-*
+#Assets 
+gson-2.6.2.jar
+mysql-connector-java-8.0.26.jar
+org.json.jar
