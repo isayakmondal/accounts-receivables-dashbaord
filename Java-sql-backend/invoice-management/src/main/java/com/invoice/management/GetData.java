@@ -49,12 +49,11 @@ public class GetData extends HttpServlet {
 		try {
 			Connection conn = GetConnection.connectToDB();
 			
-//			String pageInURL = request.getParameter("page");
-//			int page = Integer.parseInt(pageInURL) * NO_OF_ROWS_TO_GET;
-			int page = 5;	
+//		
+//			int cols = 4;	
 			Statement st = conn.createStatement();
-//			String sql_query = "SELECT * FROM invoice_details ORDER BY doc_id LIMIT " + page + ", 10";
-			String sql_query = "SELECT name_customer,cust_number, doc_id, total_open_amount, due_in_date, clear_date from dataset ORDER BY doc_id ASC LIMIT " + page + ", " + NO_OF_ROWS;
+//			String sql_query = "SELECT * FROM invoice_details ORDER BY doc_id LIMIT " + cols + ", 10";
+			String sql_query = "SELECT name_customer,cust_number, doc_id, total_open_amount, due_in_date, clear_date from dataset ORDER BY doc_id ASC LIMIT " + NO_OF_ROWS;
 //			String sql_query = "SELECT name_customer FROM dataset LIMIT 5";
 			ResultSet rs = st.executeQuery(sql_query);
 			
