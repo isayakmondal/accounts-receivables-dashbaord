@@ -39,4 +39,44 @@
     <servlet-name>GetData</servlet-name>
     <url-pattern>/GetData</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchSalesOrder</display-name>
+    <servlet-name>SearchSalesOrder</servlet-name>
+    <servlet-class>com.invoice.management.SearchSalesOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchSalesOrder</servlet-name>
+    <url-pattern>/SearchSalesOrder</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddSalesOrder</display-name>
+    <servlet-name>AddSalesOrder</servlet-name>
+    <servlet-class>com.invoice.management.AddSalesOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddSalesOrder</servlet-name>
+    <url-pattern>/AddSalesOrder</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteSalesOrder</display-name>
+    <servlet-name>DeleteSalesOrder</servlet-name>
+    <servlet-class>com.invoice.management.DeleteSalesOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteSalesOrder</servlet-name>
+    <url-pattern>/DeleteSalesOrder</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditSalesOrder</display-name>
+    <servlet-name>EditSalesOrder</servlet-name>
+    <servlet-class>com.invoice.management.EditSalesOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditSalesOrder</servlet-name>
+    <url-pattern>/EditSalesOrder</url-pattern>
+  </servlet-mapping>
 </web-app>

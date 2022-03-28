@@ -53,7 +53,7 @@ public class GetData extends HttpServlet {
 //			int cols = 4;	
 			Statement st = conn.createStatement();
 //			String sql_query = "SELECT * FROM invoice_details ORDER BY doc_id LIMIT " + cols + ", 10";
-			String sql_query = "SELECT name_customer,cust_number, doc_id, total_open_amount, due_in_date, clear_date from dataset ORDER BY doc_id ASC LIMIT " + NO_OF_ROWS;
+			String sql_query = "SELECT cust_number, doc_id, total_open_amount, due_in_date, clear_date from winter_internship ORDER BY doc_id ASC LIMIT " + NO_OF_ROWS;
 //			String sql_query = "SELECT name_customer FROM dataset LIMIT 5";
 			ResultSet rs = st.executeQuery(sql_query);
 			
@@ -61,7 +61,7 @@ public class GetData extends HttpServlet {
 			while(rs.next()) {
 				InvoicePojo inv = new InvoicePojo();
 //				inv.setBusinessCode(rs.getString("business_code"));
-				inv.setNameCustomer(rs.getString("name_customer"));
+//				inv.setNameCustomer(rs.getString("name_customer"));
 				inv.setCustNumber(rs.getString("cust_number"));
 				inv.setClearDate(rs.getString("clear_date") == null ? "" : rs.getString("clear_date").substring(0, 10));
 //				inv.setBusinessYear(rs.getInt("business_year"));

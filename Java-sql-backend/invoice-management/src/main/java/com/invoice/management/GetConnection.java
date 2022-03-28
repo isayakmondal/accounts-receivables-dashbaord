@@ -24,7 +24,7 @@ import java.sql.DriverManager;
 public class GetConnection {
 	// JDBC Driver Name and Database URL
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3306/invoices";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/grey_goose";
 	
 	// Database credentials
 	static final String USER = "root";
