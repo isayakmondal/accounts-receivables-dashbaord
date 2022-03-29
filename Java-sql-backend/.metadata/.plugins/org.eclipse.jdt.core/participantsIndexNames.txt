@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-C:\highradius-internship\Java-sql-backend\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\601597223.index
-\demo\src\main\java
-C:\highradius-internship\Java-sql-backend\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1953292796.index
-\demo\src\main\java
