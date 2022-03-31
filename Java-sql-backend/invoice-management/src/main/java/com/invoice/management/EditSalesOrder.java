@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 /**
  * Servlet implementation class EditSalesOrder
  */
-@WebServlet("/EditSalesOrder")
+@WebServlet("/editSalesOrder")
 public class EditSalesOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

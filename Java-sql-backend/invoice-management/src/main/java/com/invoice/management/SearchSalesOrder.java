@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SearchSalesOrder
  */
-@WebServlet("/SearchSalesOrder")
+@WebServlet("/searchSalesOrder")
 public class SearchSalesOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -64,7 +64,7 @@ public class SearchSalesOrder extends HttpServlet {
 			while(rs.next()) {
 				InvoicePojo inv = new InvoicePojo();
 //				inv.setBusinessCode(rs.getString("business_code"));
-				inv.setNameCustomer(rs.getString("name_customer"));
+//				inv.setNameCustomer(rs.getString("name_customer"));
 				inv.setCustNumber(rs.getString("cust_number"));
 //				inv.setClearDate(rs.getString("clear_date"));
 //				inv.setBusinessYear(rs.getInt("business_year"));
@@ -92,6 +92,7 @@ public class SearchSalesOrder extends HttpServlet {
 //			System.out.println(invoices);
 			out.print(invoices);
 			response.setStatus(200);
+			response.addHeader("Access-Control-Allow-Origin", "*");
 			out.flush();
 		}
 		catch(ClassNotFoundException e) {

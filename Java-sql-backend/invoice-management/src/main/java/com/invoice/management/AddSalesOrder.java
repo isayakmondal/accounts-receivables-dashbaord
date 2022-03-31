@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Servlet implementation class AddInvoice
  */
-@WebServlet("/AddSalesOrder")
+@WebServlet("/addSalesOrder")
 public class AddSalesOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -79,4 +79,24 @@
     <servlet-name>EditSalesOrder</servlet-name>
     <url-pattern>/EditSalesOrder</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetDummyData</display-name>
+    <servlet-name>GetDummyData</servlet-name>
+    <servlet-class>com.invoice.management.GetDummyData</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetDummyData</servlet-name>
+    <url-pattern>/GetDummyData</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>fdf</display-name>
+    <servlet-name>fdf</servlet-name>
+    <servlet-class>com.invoice.management.fdf</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fdf</servlet-name>
+    <url-pattern>/fdf</url-pattern>
+  </servlet-mapping>
 </web-app>
