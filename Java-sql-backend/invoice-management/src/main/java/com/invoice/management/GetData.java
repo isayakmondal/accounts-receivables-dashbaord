@@ -48,15 +48,16 @@ public class GetData extends HttpServlet {
 		
 		try {
 			Connection conn = GetConnection.connectToDB();
-			
-			String pageInURL = request.getParameter("page");
-			System.out.println(pageInURL);
-			int page = Integer.parseInt(pageInURL) * NO_OF_ROWS;
-//		
+//			
+//			String pageInURL = request.getParameter("page");
+//			System.out.println(pageInURL);
+//			int page = Integer.parseInt(pageInURL) * NO_OF_ROWS;
+		
 //			int cols = 4;	
 			Statement st = conn.createStatement();
 //			String sql_query = "SELECT * FROM invoice_details ORDER BY doc_id LIMIT " + cols + ", 10";
-			String sql_query = "SELECT sl_no, business_code, cust_number, clear_date, buisness_year, doc_id, posting_date, document_create_date, due_in_date, invoice_currency, document_type, posting_id,  total_open_amount, baseline_create_date, cust_payment_terms, invoice_id  from winter_internship ORDER BY sl_no ASC LIMIT " + page + ", " + NO_OF_ROWS;
+//			String sql_query = "SELECT sl_no, business_code, cust_number, clear_date, buisness_year, doc_id, posting_date, document_create_date, due_in_date, invoice_currency, document_type, posting_id,  total_open_amount, baseline_create_date, cust_payment_terms, invoice_id  from winter_internship ORDER BY sl_no ASC LIMIT " + page + ", " + NO_OF_ROWS;
+			String sql_query = "SELECT sl_no, business_code, cust_number, clear_date, buisness_year, doc_id, posting_date, document_create_date, due_in_date, invoice_currency, document_type, posting_id,  total_open_amount, baseline_create_date, cust_payment_terms, invoice_id  from winter_internship ";
 //			String sql_query = "SELECT name_customer FROM dataset LIMIT 5";
 			ResultSet rs = st.executeQuery(sql_query);
 			
@@ -95,6 +96,11 @@ public class GetData extends HttpServlet {
 			out.print(invoices);
 			response.setStatus(200);
 			response.addHeader("Access-Control-Allow-Origin", "*");
+			 response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+			 response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+			    
+			  
+			
 			out.flush();
 		}
 		catch(ClassNotFoundException e) {
