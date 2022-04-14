@@ -5,10 +5,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,14 +23,14 @@ import com.google.gson.GsonBuilder;
 /**
  * Servlet implementation class SendData
  */
-@WebServlet("/getData")
-public class GetData extends HttpServlet {
+@WebServlet("/advanceSearch")
+public class AdvanceSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public GetData() {
+	public AdvanceSearch() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -38,25 +41,58 @@ public class GetData extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Initialize the database
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
 
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		String salesOrder = null;
 		PrintWriter out = response.getWriter();
-
 		try {
+			BufferedReader reader = request.getReader();
+			salesOrder = reader.readLine();
+			System.out.println(salesOrder);
+
+			salesOrder = salesOrder.substring(1, salesOrder.length() - 1);
+			String final_values[] = salesOrder.split(",");
+
+			for (int i = 0; i < final_values.length; ++i) {
+				final_values[i] = final_values[i].split(":")[1];
+				if (final_values[i].charAt(0) == '\"') {
+					final_values[i] = final_values[i].substring(1, final_values[i].length() - 1);
+				}
+				System.out.println(final_values[i]);
+			}
+
+			String doc_id = final_values[0];
+			String invoice_id = final_values[1];
+			String cust_number = final_values[2];
+			String business_year = final_values[3];
+
 			Connection conn = GetConnection.connectToDB();
+			String sql_statement = "select * FROM winter_internship where doc_id = ? and invoice_id = ? and cust_number =? and buisness_year =?";
 
-			Statement st = conn.createStatement();
+			PreparedStatement st = conn.prepareStatement(sql_statement);
+			st.setString(1, doc_id);
+			st.setString(2, invoice_id);
+			st.setString(3, cust_number);
+			st.setString(4, business_year);
 
-			String sql_query = "SELECT sl_no, business_code, cust_number, clear_date, buisness_year, doc_id, posting_date, document_create_date, due_in_date, invoice_currency, document_type, posting_id,  total_open_amount, baseline_create_date, cust_payment_terms, invoice_id, aging_bucket  from winter_internship ";
-			ResultSet rs = st.executeQuery(sql_query);
+			System.out.println(st);
 
+			ResultSet rs = st.executeQuery();
 			ArrayList<InvoicePojo> data = new ArrayList<>();
 			while (rs.next()) {
 				InvoicePojo inv = new InvoicePojo();
 				inv.setSl_no(rs.getLong("sl_no"));
 				inv.setBusinessCode(rs.getString("business_code"));
+//				inv.setNameCustomer(rs.getString("name_customer"));
 				inv.setCustNumber(rs.getString("cust_number"));
 				inv.setClearDate(rs.getString("clear_date") == null ? "" : rs.getString("clear_date").substring(0, 10));
 				inv.setBusinessYear(rs.getInt("buisness_year"));
@@ -72,6 +108,8 @@ public class GetData extends HttpServlet {
 				inv.setCustPaymentTerms(rs.getString("cust_payment_terms"));
 				inv.setInvoiceID(rs.getLong("invoice_id"));
 				inv.setAging_bucket(rs.getString("aging_bucket"));
+//				inv.setIsOpen(rs.getInt("isOpen"));
+//				inv.setNotes(rs.getString("notes"));
 
 //				System.out.println(inv);
 
@@ -84,29 +122,16 @@ public class GetData extends HttpServlet {
 //			System.out.println(invoices);
 			out.print(invoices);
 			response.setStatus(200);
-			response.addHeader("Access-Control-Allow-Origin", "*");
-			response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
-			response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+//			response.addHeader("Access-Control-Allow-Origin", "*");
+//			 response.addHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+//			 response.addHeader("Access-Control-Allow-Headers", "Content-Type");
 
 			out.flush();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+
+			conn.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+
 		}
-
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
