@@ -67,7 +67,6 @@ export default function FormDialogSearch({
     business_year: buisness_year,
   };
 
-
   const handleSearch = () => {
     if (
       doc_id !== "" &&

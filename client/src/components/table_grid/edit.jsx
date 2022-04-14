@@ -38,10 +38,9 @@ export default function FormDialogEdit({
   openEdit,
   handleCloseEdit,
 }) {
+  const [newInvoiceCurrency, setNewInvoiceCurrency] = React.useState("");
+  const [newCustPaymentTerms, setNewCustPaymentTerms] = React.useState("");
 
-  const [ newInvoiceCurrency, setNewInvoiceCurrency ] = React.useState("");
-  const [ newCustPaymentTerms, setNewCustPaymentTerms ] = React.useState("");
-  
   const handleInvoiceAmount = (event) => {
     // setSaveButtonClicked(false);
     setNewInvoiceCurrency(event.target.value);
@@ -55,41 +54,39 @@ export default function FormDialogEdit({
   };
 
   const handleSave = () => {
-
     const doc_id = selected[0];
-    if(newInvoiceCurrency !== '' && newCustPaymentTerms !== '' && doc_id !== ' ') {
-        axios.post('http://localhost:8080/invoice-management/EditSalesOrder', 
-        {
-            newInvoiceCurrency, 
-            newCustPaymentTerms,
-            doc_id
+    if (
+      newInvoiceCurrency !== "" &&
+      newCustPaymentTerms !== "" &&
+      doc_id !== " "
+    ) {
+      axios
+        .post("http://localhost:8080/invoice-management/EditSalesOrder", {
+          newInvoiceCurrency,
+          newCustPaymentTerms,
+          doc_id,
         })
         .then((response) => {
-            console.log(response);
-            handleClose();
-            alert("Data Updated Successfully");
-            // setData([])
-            // setDataPageCount(0);
+          console.log(response);
+          handleClose();
+          alert("Data Updated Successfully");
+          // setData([])
+          // setDataPageCount(0);
         })
         .catch((error) => {
-            console.log(error);
-            alert("Data Not Updated");
-        })
-    }
-    else{
+          console.log(error);
+          alert("Data Not Updated");
+        });
+    } else {
       alert("Mandatory Fields cannot be empty!");
     }
     // setSaveButtonClicked(true);
-}
+  };
 
-// const handleReset = () => {
-//     setNewInvoiceAmount(invoiceAmount);
-//     setNewNotes(notes);
-// }
-
-const handleClose = () => {
+  const handleClose = () => {
+    handleCloseEdit();
     // setOpen(false);
-}
+  };
   return (
     <div>
       <Dialog

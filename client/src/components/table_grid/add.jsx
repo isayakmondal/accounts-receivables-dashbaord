@@ -97,6 +97,7 @@ export default function FormDialogAdd({ openAdd, handleCloseAdd }) {
         .then((response) => {
           console.log(response);
           alert("Data Added Successfully");
+
           // setData([])
           // setDataPageCount(0);
         })
@@ -140,7 +141,7 @@ export default function FormDialogAdd({ openAdd, handleCloseAdd }) {
   const handleBusinessCode = (event) => {
     setAddButtonClicked(false);
     setBusinessCode(event.target.value);
-    console.log(businessCode);
+    // console.log(businessCode);
   };
 
   const handleCustomerNumber = (event) => {
