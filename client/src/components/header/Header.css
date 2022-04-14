@@ -1,0 +1,26 @@
+.bg{
+  background-color: #2d4250;
+  height: 60px;
+  display:flex;
+  
+}
+
+.abc {
+  margin-left: 2vw;
+  margin-top: 5px;
+
+}
+
+.hrc{
+ margin-left: 200px;
+ margin-top: 10px;
+}
+
+.ivl{
+  background-color: #2d4250;
+  color: #FFFFFF;
+  font-size: 22px;
+  display:flex;
+  padding-left: 2vw;;
+  
+}

@@ -1,0 +1,10 @@
+.foot{
+    background-color: #2d4250;
+    height: 40px;
+    color: #FFFFFF;
+    padding-top: 14px;
+  }
+  .link{
+      color: rgb(42, 146, 231);
+      text-decoration: underline;
+  }

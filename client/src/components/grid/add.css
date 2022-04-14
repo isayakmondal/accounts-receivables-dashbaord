@@ -1,0 +1,17 @@
+.dialog{
+
+}
+.content{
+    background-color: #2d4250;
+    color: #FFFFFF;
+}
+.title {
+    background-color: #2d4250;
+    color: #FFFFFF;
+}
+.dialogAction {
+    background-color: #2d4250;
+}
+.parentGrid{
+  padding-left: 50px;
+}
