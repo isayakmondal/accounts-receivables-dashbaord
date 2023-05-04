@@ -1,14 +1,8 @@
-# HighRadius Internship
+# Accounts Receivalbes Dashboard
 
-**This Project is done for HighRadius(HRC) as a part of Winter Internship Program 2022.**
+**This Project is done as a part of my Winter Internship Program 2022.**
 
-In this internship the time frame has been divided into two phases where:
-## Phase 1: (Project)
-In the first phase I built a machine learning model that automates `account receivables` given a dataset/data(supervised machine learning). We have to understand the data, preprocess the data, execute feature engineering and finally train a model to predict `account receivables`.
+In the initial phase of the project, I developed a machine learning model to automate the process of managing account receivables. This involved analyzing and understanding the dataset, preprocessing the data, performing feature engineering, and training a supervised machine learning model to predict account receivables.
 
-## Phase 2: (Milestone I and II)
-In this phase I built a full stack `Invoice Management Application` using `ReactJs, JDBC, Java, JSP and SQL` which include:
-- Visualize Data in the form of grids.
-- Performing `CRUD` operations on each data.
-- Performing searching operations on the invoices.
+In the subsequent phases, I completed Milestone I and Milestone II by building a comprehensive Invoice Management Application. This application was developed using various technologies such as ReactJs, JDBC, Java, JSP, and SQL. The application provides features such as visualizing data in grid format, performing CRUD (Create, Read, Update, Delete) operations on invoices, and enabling searching operations on the invoices.
 
