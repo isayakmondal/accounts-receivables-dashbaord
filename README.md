@@ -6,5 +6,14 @@ In the initial phase of the project, I developed a machine learning model to aut
 
 In the subsequent phases, I completed Milestone I and Milestone II by building a comprehensive Invoice Management Application. This application was developed using various technologies such as ReactJs, JDBC, Java, JSP, and SQL. The application provides features such as visualizing data in grid format, performing CRUD (Create, Read, Update, Delete) operations on invoices, and enabling searching operations on the invoices.
 
-## Screenshot
+## Screenshots
+### Main UI
 ![table-ui.png](https://raw.githubusercontent.com/isayakmondal/accounts-receivables-dashbaord/main/client/screenshots/table-ui.png)
+### Add New Item
+![add.png](./client/screenshots/add.png)
+### Edit
+![add.png](./client/screenshots/edit.png)
+### Delete
+![add.png](./client/screenshots/delete.png)
+
+
